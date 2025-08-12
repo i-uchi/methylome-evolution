@@ -21,7 +21,7 @@ Create `orig_data` directory containing subdirectories for each strains to be co
 
 - `origseq.fna`: Original genomic sequences in FASTA format.
 - `origseq.gff`: Gene annotations in GFF format. Consistent sequence names should be used in `origseq.fna` and `origseq.gff`
-- `motif.data`: Methylation motifs generated from modificaiton data obtained by SMRT sequencing. The file should be tab-delimited, and the first four columns should contain: motif string, position of methylated base, motification type (m6A/m4C/m5C), and methyllation fraction.
+- `motif.data`: Methylation motifs generated from modificaiton data obtained by SMRT sequencing. The file should be tab-delimited, and the first four columns should contain: motif string, position of methylated base, motification type (m6A/m4C/m5C), and methylation fraction.
 
 In addition, ortholog group information represented in the [DomClust](http://mbgd.nibb.ac.jp/domclust/) default (o0) format is necessary to create multiple sequence alignments. The name of this file shuld be specifeid as `orthogroup_file` variable in the `conv10b_all.sh` script.
 
@@ -36,7 +36,7 @@ The package contains a sample dataset, which is part of the H. pylori methylome 
 ./conv10b_all.sh
 ```
 
-The overall procedure consists of the following sub-steps: 1) create methylome sequences, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs in the `orig_align` directory, and 4) create the alignments with the extended code  in the `ali10b` directory.
+The overall procedure consists of the following sub-steps: 1) create methylome sequences using the extended code, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs and store them in the `orig_align` directory, and 4) convert the 4-base alignments to the extended code and store them in the `ali10b` directory.
 
 
 
