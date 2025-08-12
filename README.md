@@ -43,7 +43,7 @@ The overall procedure consists of the following steps: 1) create methylome seque
 
 
 ```bash
-./4branch.sh
+4branch.sh
 ```
 
 3. Estimation of the parameters using the 8-base GTR model 
@@ -52,7 +52,7 @@ The overall procedure consists of the following steps: 1) create methylome seque
 ```sh
 ./8branch.sh
 ```
-
+The result will be stored in the `gtr8_out` directory.
 This evaluates branch lengths and substitution parameters under the [multi state](https://github.com/amkozlov/raxml-ng/wiki/Input-data#evolutionary-model:~:text=Morphological/multistate) GTR model using a fixed tree topology.
 
 
