@@ -15,7 +15,7 @@ This repository contains scripts to generate methylome sequences with the extend
 tar xvfz conv10b.tgz
 ```
 
-## Input data Preparation
+## Input data preparation
 
 Create `orig_data` directory containing subdirectories for each strains to be compared, with the strain identifier as the directory name. Each subdirectory should contain the following files:
 
@@ -24,7 +24,7 @@ Create `orig_data` directory containing subdirectories for each strains to be co
 - `motif.data`: Methylation motifs generated from modificaiton data obtained by SMRT sequencing. The file should be tab-delimited, and the first four columns should contain: motif string, position of methylated base, motification type (m6A/m4C/m5C), and methyllation fraction.
 
 
-See `orig_data` directory in the above sample data.
+The package contains a sample dataset, which is part of the H. pylori methylome data used in the paper by Yoshida et al. See `orig_data` directory bundled with this package.
 
 
 ## Usage
