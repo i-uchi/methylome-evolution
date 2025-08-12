@@ -4,8 +4,8 @@ This repository contains scripts to generate methylome sequences with the extend
 
 ## Requirements
 
-- RAxML-NG
-- ClustalOmega
+- [RAxML-NG](https://github.com/amkozlov/raxml-ng)
+- [ClustalOmega ](http://www.clustal.org/omega/)
 
 ## Installation
 
@@ -17,31 +17,36 @@ tar xvfz conv10b.tgz
 
 ## Input data Preparation
 
-Create **orig_data** directory, which contains subdirectories for individual strains to be compared. Each subdirectory should contains the following files:
+Create `orig_data` directory containing subdirectories for each strains to be compared, with the strain identifier as the directory name. Each subdirectory should contain the following files:
 
-- **origseq.fna**: original genomic sequences in FASTA format.
-- **origseq.gff**: gene annotations in GFF format.
-- **motif.data**: methylation motifs generated from the modificaiton data obtained from SMRT sequencing.
-
-See **orig_data** directory in the above sample data.
+- `origseq.fna`: Original genomic sequences in FASTA format.
+- `origseq.gff`: Gene annotations in GFF format. Consistent sequence names should be used in `origseq.fna` and `origseq.gff`
+- `motif.data`: Methylation motifs generated from modificaiton data obtained by SMRT sequencing. The file should be tab-delimited, and the first four columns should contain: motif string, position of methylated base, motification type (m6A/m4C/m5C), and methyllation fraction.
 
 
-## Exection
+See `orig_data` directory in the above sample data.
 
-1. Preparation of 8-base alignment. The script contains the following steps: 1) create methylome sequences, 2) extract 4-base and 8-base CDS sequences, 3) create 4-base alignment of the extracted CDS, and 4) convert the 4-base alignments into the alignment with the extended code.
+
+## Usage
+
+1. Preparation of the methylome alignment using the extended code.
 
 ```
 ./conv10b_all.sh
 ```
 
-2. Inference of tree topology using 4-base GTR model 
+The overall procedure consists of the following steps: 1) create methylome sequences, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs in the `orig_align` directory, and 4) create the alignments with the extended code  in the `ali10b` directory.
+
+
+
+2. Inference of the tree topology using the 4-base GTR model 
 
 
 ```bash
 ./4branch.sh
 ```
 
-3. Estimation of parameters using 8-base GTR model 
+3. Estimation of the parameters using the 8-base GTR model 
 
 
 ```sh
@@ -50,7 +55,11 @@ See **orig_data** directory in the above sample data.
 
 This evaluates branch lengths and substitution parameters under the [multi state](https://github.com/amkozlov/raxml-ng/wiki/Input-data#evolutionary-model:~:text=Morphological/multistate) GTR model using a fixed tree topology.
 
-⸻
 
 For detailed usage of RAxML-NG, refer to the official documentation:
 👉 https://github.com/amkozlov/raxml-ng/wiki
+
+## References
+
+Yoshida, S., Uchiyama, I., Fukuyo, M., Kato, M., Rao, D. N., Konno, M., Fujiwara, S., Azuma, T. Kobayashi, I., Kishino, H.
+Towards molecular evolutionary epigenomics with an expanded nucleotide code involving methylated bases, submitted.
