@@ -9,10 +9,10 @@ This repository contains scripts to generate methylome sequences with the extend
 
 ## Installation
 
-- Install scripts
+Install all the scripts with a sample dataset.
 
 ```
-tar xvfz conv10b.tgz
+git clone https://github.com/i-uchi/methylome-evolution.git
 ```
 
 ## Input data preparation
@@ -59,7 +59,7 @@ This evaluates branch lengths and substitution parameters under the [multi state
 For detailed usage of RAxML-NG, refer to the official documentation:
 👉 https://github.com/amkozlov/raxml-ng/wiki
 
-## References
+## Reference
 
 Yoshida, S., Uchiyama, I., Fukuyo, M., Kato, M., Rao, D. N., Konno, M., Fujiwara, S., Azuma, T. Kobayashi, I., Kishino, H.
 Towards molecular evolutionary epigenomics with an expanded nucleotide code involving methylated bases, submitted.
