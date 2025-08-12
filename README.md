@@ -23,19 +23,20 @@ Create `orig_data` directory containing subdirectories for each strains to be co
 - `origseq.gff`: Gene annotations in GFF format. Consistent sequence names should be used in `origseq.fna` and `origseq.gff`
 - `motif.data`: Methylation motifs generated from modificaiton data obtained by SMRT sequencing. The file should be tab-delimited, and the first four columns should contain: motif string, position of methylated base, motification type (m6A/m4C/m5C), and methyllation fraction.
 
+In addition, ortholog group information represented in the [DomClust](http://mbgd.nibb.ac.jp/domclust/) default (o0) format is necessary to create multiple sequence alignments. The name of this file shuld be specifeid as `orthogroup_file` variable in the `conv10b_all.sh` script.
 
-The package contains a sample dataset, which is part of the H. pylori methylome data used in the paper by Yoshida et al. See `orig_data` directory bundled with this package.
+The package contains a sample dataset, which is part of the H. pylori methylome data used in the paper by Yoshida et al. See `orig_data` directory and `core.sample.o0` file bundled with this package.
 
 
 ## Usage
 
-1. Preparation of the methylome alignment using the extended code.
+1. Preparation of the alignments for each ortholog group in both 4-base and extended-base coding.
 
 ```
 ./conv10b_all.sh
 ```
 
-The overall procedure consists of the following steps: 1) create methylome sequences, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs in the `orig_align` directory, and 4) create the alignments with the extended code  in the `ali10b` directory.
+The overall procedure consists of the following sub-steps: 1) create methylome sequences, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs in the `orig_align` directory, and 4) create the alignments with the extended code  in the `ali10b` directory.
 
 
 
@@ -43,7 +44,7 @@ The overall procedure consists of the following steps: 1) create methylome seque
 
 
 ```bash
-4branch.sh
+./4branch.sh
 ```
 
 3. Estimation of the parameters using the 8-base GTR model 
@@ -52,9 +53,10 @@ The overall procedure consists of the following steps: 1) create methylome seque
 ```sh
 ./8branch.sh
 ```
-The result will be stored in the `gtr8_out` directory.
+
 This evaluates branch lengths and substitution parameters under the [multi state](https://github.com/amkozlov/raxml-ng/wiki/Input-data#evolutionary-model:~:text=Morphological/multistate) GTR model using a fixed tree topology.
 
+Both results in step 2 and 3 above will be stored in the `gtr8_out` directory.
 
 For detailed usage of RAxML-NG, refer to the official documentation:
 👉 https://github.com/amkozlov/raxml-ng/wiki
