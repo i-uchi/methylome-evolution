@@ -61,6 +61,10 @@ Both results in step 2 and 3 above will be stored in the `gtr8_out` directory.
 For detailed usage of RAxML-NG, refer to the official documentation:
 👉 https://github.com/amkozlov/raxml-ng/wiki
 
+## Alignment trimming (trimAl)
+
+To improve alignment quality by trimming poorly aligned columns and apply the same trimming to extended-base alignments, see `docs/trimal.md` and use `trimal_batch.sh` together with `src/selectColsFromFasta.py`.
+
 ## Reference
 
 Yoshida, S., Uchiyama, I., Fukuyo, M., Kato, M., Rao, D. N., Konno, M., Fujiwara, S., Azuma, T. Kobayashi, I., Kishino, H.
