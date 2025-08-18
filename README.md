@@ -39,16 +39,17 @@ The package contains a sample dataset, which is part of the H. pylori methylome 
 The overall procedure consists of the following sub-steps: 1) create methylome sequences using the extended code, 2) extract 4-base and extended-base CDS sequences, 3) create 4-base alignments of the extracted CDSs and store them in the `orig_align` directory, and 4) convert the 4-base alignments to the extended code and store them in the `ali10b` directory.
 
 
+2. Alignment trimming with trimAl
 
-2. Inference of the tree topology using the 4-base GTR model 
+Trim alignments to improve quality by removing poorly aligned columns. See `docs/trimal.md` for detailed usage.
 
+3. Inference of the tree topology using the 4-base GTR model 
 
 ```bash
 ./4branch.sh
 ```
 
-3. Estimation of the parameters using the 8-base GTR model 
-
+4. Estimation of the parameters using the 8-base GTR model 
 
 ```sh
 ./8branch.sh
@@ -56,14 +57,10 @@ The overall procedure consists of the following sub-steps: 1) create methylome s
 
 This evaluates branch lengths and substitution parameters under the [multi state](https://github.com/amkozlov/raxml-ng/wiki/Input-data#evolutionary-model:~:text=Morphological/multistate) GTR model using a fixed tree topology.
 
-Both results in step 2 and 3 above will be stored in the `gtr8_out` directory.
+Both results in step 3 and 4 above will be stored in the `gtr8_out` directory.
 
 For detailed usage of RAxML-NG, refer to the official documentation:
 👉 https://github.com/amkozlov/raxml-ng/wiki
-
-## Alignment trimming (trimAl)
-
-To improve alignment quality by trimming poorly aligned columns and apply the same trimming to extended-base alignments, see `docs/trimal.md` and use `trimal_batch.sh` together with `src/selectColsFromFasta.py`.
 
 ## Reference
 
